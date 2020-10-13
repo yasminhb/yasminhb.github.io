@@ -8,10 +8,17 @@ var angryflower1, angryflower2, angryflower3;
 var surprisedflower1, surprisedflower2, surprisedflower3;
 var digustedflower1, disgustedflower2, disgustedflower3;
 var happysound, sadsound, angrysound, disgustedsound, neutralsound;
+var mode;
+var landingpage;
+var sound, button, input;
+
 
 const video = document.getElementById('video');
 
 function preload(){
+  
+landingpage= loadImage ('landing page.jpg');
+
   happysky = loadImage('images/happysky.jpg');
     sadsky = loadImage ('images/sadsky.jpg');
     angrysky = loadImage ('images/angrysky.jpg');
@@ -63,8 +70,74 @@ function preload(){
 }
 
     function setup() {
-        createCanvas(900,675);
+        createCanvas(windowWidth,windowHeight);
+        mode = 0; 
+        // textSize(21);
+        // createButton('Sound');
+        // button.position(20,40);
+        // button.mousePressed
+
+
     }
+
+    function draw(){
+      if (mode==0){
+        push();
+        scale(0.3,0.3);
+        image(landingpage,0,0);
+        pop();
+
+        // scale(windowWidth,windowHeight);
+        
+        
+        // image(image1,0,0);
+        // // ellipse(100,100);
+        // // fill(385);
+        // text('Hi there!',windowWidth/2,windowHeight/3);
+        // text('Welcome the Garden of Pathetic Fallacy!',windowWidth/6,windowHeight/2);
+        // text('To access the garden, make sure you allow this page to access your webcam, also make sure you are using chrome as a browser!',windowWidth/6,windowHeight/4);
+        // text('Your facial expressions will be analysed via your webcam and will help you to interact with the garden', windowWidth/6, windowHeight/5);
+        // text('Try to make a bunch of different facial expressions and have fun!',windowWidth/6,windowHeight/6);
+        // text('Press ENTER to start',windowWidth/6,windowHeight/7);
+
+        // happysky.hide();
+        // neutralsky.hide();
+        
+
+  
+        
+    
+        
+   
+
+        // Hi there!
+
+        // Welcome to the Garden!
+        
+        // To access the garden, make sure you allow this page access to your webcam.
+        
+        // Your facial expressions will be analysed via your webcam and help you to interact with the garden.
+        
+        // Have fun!
+        
+        // Press ENTER to start
+
+
+        fill(0);
+      }
+
+    }
+
+    function keyPressed(){
+      if (keyCode===ENTER){
+        mode=1;
+        clear(landingpage);
+        // clear(text);
+        // clear(rect);
+      }
+    }
+
+  
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -146,10 +219,24 @@ video.addEventListener('play', () => {
   //   console.log("not happy")
   // }
 
+  
+
   if(result[0] == 1){
     image(happysky,0,0);
-    // scale(0.5);
     happysky.resize(900,675);
+
+
+    // push(); 
+    // // scale(2,2);
+    // image(happysky,0,0,happysky.width*0.5, happysky.height*0.5);
+    // pop();
+    // var x=happysky.width*0.5*0.25
+    // // happysky.resize(900,675);
+
+    // animation(happyflower1,x,400);
+    // animation(happyflower2,2*x,300);
+    // animation(happyflower3,3*x,400);
+
     animation(happyflower1,180,400);
     animation(happyflower2,450,300);
     animation(happyflower3,700,400);
@@ -239,6 +326,12 @@ video.addEventListener('play', () => {
 })
 
 function mousePressed(){
+
+// if(result[0]==1){
+// sound = happysound
+
+}
+
 // sadsound.play();
   // if(result[0] == 2){
   //   sadsound.isPlaying();
@@ -246,6 +339,17 @@ function mousePressed(){
   //     sadsound.stop();
   //   }
   // }
+
+  // var sound;
+
+
+
+  // if(result[0]==1){
+  //   sound = happysound;
+  // } 
+
+  // if(button clicked= true)
+  // sound.play
 
   if(result[0]==1){
     happysound.play();
@@ -278,7 +382,9 @@ disgustedsound.stop();
 }
 
 
-}
+
+
+
 
 
   // if (sadsound.isPlaying()){ // checks if the song is playing
