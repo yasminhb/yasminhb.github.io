@@ -1,4 +1,4 @@
-// Face Tracking & Emotion Detection Code by Web Dev Simplified  21/05/19
+// Face Tracking & Emotion Detection Code by Kyle Cook - Web Dev Simplified  21/05/19
 // ^ Code accessed via https://github.com/WebDevSimplified/Face-Detection-JavaScript
 // Face Tracking/Emotion Detection code remixed by Yasmin Harith Brewer 16/10/20
 // Animations and Images created by Yasmin Harith Brewer
